@@ -228,3 +228,11 @@ class App(tk.Tk):
 if __name__ == "__main__":
     app = App()
     app.mainloop()
+
+
+
+![окошко](https://github.com/nst34/Khvichiya_Nastya_20220_OOPR/blob/main/Task_1/images/окошко.png)
+![ввод данных](https://github.com/nst34/Khvichiya_Nastya_20220_OOPR/blob/main/Task_1/images/ввод%20данных.png)
+![выбор категории](https://github.com/nst34/Khvichiya_Nastya_20220_OOPR/blob/main/Task_1/images/выбор%20категории.png)
+![сортировка](https://github.com/nst34/Khvichiya_Nastya_20220_OOPR/blob/main/Task_1/images/сортировка.png)
+![удаление строки](https://github.com/nst34/Khvichiya_Nastya_20220_OOPR/blob/main/Task_1/images/удаление%20выбранной%20строки.png)
