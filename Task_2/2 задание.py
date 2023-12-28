@@ -73,3 +73,18 @@ sv_from.send_data(Data("Hello", sv_to.get_ip()))
 router.send_data()
 msg_lst_to = sv_to.get_data()
 assert msg_lst_to == [], "метод get_data() вернул неверные данные, возможно, неправильно работает метод unlink()"
+
+
+# serv1 = Server()
+# serv2 = Server()
+# router1 = Router()
+#
+# router1.link(serv1)
+# router1.link(serv2)
+#
+# serv1.send_data(Data("Hello", serv2.get_ip()))
+# serv2.send_data(Data("Hi", serv1.get_ip()))
+# router1.send_data()
+# received_data1 = serv1.get_data()
+# received_data2 = serv2.get_data()
+# print(f'serv1 received {received_data1[0].data}, serv2 received {received_data2[0].data}')
