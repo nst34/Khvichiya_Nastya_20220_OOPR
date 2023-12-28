@@ -228,7 +228,7 @@ class App(tk.Tk):
 if __name__ == "__main__":
     app = App()
     app.mainloop()
-
+'''
 
 
 ![окошко](https://github.com/nst34/Khvichiya_Nastya_20220_OOPR/blob/main/Task_1/images/окошко.png)
