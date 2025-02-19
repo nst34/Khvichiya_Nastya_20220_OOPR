@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Icon.png" type="image/jpg"> <!-- картинка во вкладке -->
+    <title>Пробный сайт</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            width: 1440px;
+            height: 84px;
+            background-color: whitesmoke;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .logo img {
+            height: 24px;
+            margin-right: 8px;
+        }
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+        }
+        .auth {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .auth a {
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .login {
+            color: #28a745;
+        }
+        .signup {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+        .hero {
+            width: 1440px;
+            height: 600px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 40px;
+        }
+        .hero-text {
+            max-width: 600px;
+        }
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+        }
+        .hero-text span {
+            color: #28a745;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .hero-text .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .hero-image img {
+            width: 500px;
+        }
+        .clients {
+            width: 1440px;
+            text-align: center;
+            padding: 60px 40px;
+        }
+        .clients h2 {
+            font-size: 32px;
+            color: #333;
+        }
+        .clients p {
+            font-size: 18px;
+            color: #666;
+            margin: 10px 0 40px;
+        }
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .client-logos img {
+            height: 40px;
+        }
+        .categories {
+            width: 1440px;
+            text-align: center;
+            padding: 60px 40px;
+            background-color: #f8f9fa;
+        }
+        .categories h2 {
+            font-size: 32px;
+            color: #333;
+        }
+        .categories p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .category {
+            text-align: center;
+            width: 200px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .category h3 {
+            font-size: 22px;
+            color: #333;
+            margin-top: 10px;
+        }
+        .category p {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .client-logos img {
+            height: 40px;
+        }
+        .info-section {
+            width: 1440px;
+            height: 600px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 40px;
+        }
+        .info-text {
+            max-width: 600px;
+            align-items: center;
+        }
+        .info-text h2 {
+            font-size: 32px;
+            color: #333;
+        }
+        .info-text p {
+            font-size: 18px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .info-text .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .stats-section {
+            width: 1440px;
+            height: 288px;
+            background-color: #f8f9fa;
+            display: flex;
+            padding: 60px 40px;
+            text-align: left;
+        }
+        .stats-section h2 {
+            font-size: 32px;
+            color: #333;
+        }
+        .stats-section p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat h3 {
+            font-size: 28px;
+            color: #333;
+        }
+        .stat p {
+            font-size: 16px;
+            color: #666;
+        }
+        .statistics {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+        }
+        .statistics-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .statistics-text {
+            font-size: 30px;
+            flex: 1;
+            text-align: left;
+        }
+        .statistics-text h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+        }
+        .statistics-text span {
+            color: #28a745;
+        }
+        .statistics-text p {
+            font-size: 18px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+        }
+        .stat-i{
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Расстояние между иконкой и текстом */
+        }
+        .stat-item {
+            text-align: left;
+            padding: 20px;
+        }
+        .stat-item h3 {
+            font-size: 24px;
+            color: #333;
+        }
+        .stat-item p {
+
+            font-size: 18px;
+            color: #666;
+        }
+        .design-footer {
+            width: 1440px;
+            height: 600px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 40px;
+        }
+        .design-footer-img {
+            width: 500px;
+            align-items: center;
+        }
+        .design-footer-text {
+            max-width: 601px;
+            align-items: center;
+        }
+        .design-footer-text h2 {
+            font-size: 32px;
+            color: #333;
+        }
+        .design-footer-text p {
+            font-size: 18px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .design-footer .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .customer-block {
+            width: 1440px;
+            height: 390px;
+            background: white;
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .customer-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .customer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .customer-info {
+            flex: 1;
+            padding: 0 40px;
+        }
+        .customer-info p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .customer-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .customer-title {
+            font-size: 14px;
+            color: #888;
+        }
+        .logos {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .logos img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        .space-right {
+            width: 144px;
+        }
+        .view-all {
+            margin-left: auto;
+            font-size: 16px;
+            font-weight: bold;
+            color: #28a745;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .view-all::after {
+            content: '→';
+            margin-left: 5px;
+        }
+
+        .blog-section {
+            width: 90%;
+            display: grid;
+            place-items: center;
+            max-width: 1200px;
+            text-align: center;
+        }
+        .blog-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .blog-subtitle {
+            font-size: 16px;
+            max-width: 628px;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            width: 32%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+            background: white;
+            position: relative;
+            top: -40px;
+            border-radius: 10px;
+            margin: 0 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-content p {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .read-more {
+            font-size: 14px;
+            font-weight: bold;
+            color: #28a745;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .read-more::after {
+            content: ' →';
+            margin-left: 5px;
+        }
+        .footer-container {
+            width: 1440px;
+            height: 628px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 50px 0;
+        }
+        .cta-section {
+            text-align: center;
+        }
+        .cta-section h1 {
+            font-size: 42px;
+            color: #333;
+        }
+        .cta-section button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .footer {
+            width: 100%;
+            background-color: #1f2937;
+            color: white;
+            padding: 40px 80px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-column {
+            max-width: 250px;
+        }
+        .footer-column-logo {
+            display: flex;
+            align-items: center; /* Выравнивание по вертикали */
+            gap: 8px; /* Отступ между картинкой и текстом */
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .footer-column-logo img {
+            width: 25px;
+            height: auto;
+            vertical-align: middle; /* Выровняет картинку относительно текста */
+        }
+        .footer-column-logo h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-column p, .footer-column a {
+            font-size: 14px;
+            color: #bbb;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .social-icons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+        .subscribe input {
+            padding: 8px;
+            width: 180px;
+            border-radius: 4px;
+            border: none;
+        }
+        .subscribe button {
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <img src="Icon.png" alt="Логотип">
+        <h1>Nexcent</h1>
+    </div>
+    <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">Service</a>
+        <a href="#">Feature</a>
+        <a href="#">Product</a>
+        <a href="#">Testimonial</a>
+        <a href="#">FAQ</a>
+    </nav>
+    <div class="auth">
+        <a href="#" class="login">Login</a>
+        <a href="#" class="signup">Sign up</a>
+    </div>
+</header>
+<section class="hero">
+    <div class="hero-text">
+        <h1>Lessons and insights <br> <span>from 8 years</span></h1>
+        <p>Where to grow your business as a photographer: site or social media?</p>
+        <a href="#" class="btn">Register</a>
+    </div>
+    <div class="hero-image">
+        <img src="illustration.png" alt="Иллюстрация">
+    </div>
+</section>
+<section class="clients">
+    <h2>Our Clients</h2>
+    <p>We have been working with some Fortune 500+ clients</p>
+    <div class="client-logos">
+        <img src="logo1.png" alt="Client 1">
+        <img src="logo2.png" alt="Client 2">
+        <img src="logo3.png" alt="Client 3">
+        <img src="logo4.png" alt="Client 4">
+        <img src="logo5.png" alt="Client 5">
+        <img src="logo6.png" alt="Client 6">
+        <img src="logo7.png" alt="Client 7">
+    </div>
+</section>
+<section class="categories">
+    <h2>Manage your entire community in a single system</h2>
+    <p>Who is Nexcent suitable for?</p>
+    <div class="category-list">
+        <div class="category">
+            <img src="icon1.png" alt="icons">
+            <h3>Membership Organisations</h3>
+            <p>Our membership management software provides full automation of membership renewals and payments</p>
+        </div>
+        <div class="category">
+            <img src="icon2.png" alt="icons">
+            <h3>National Associations</h3>
+            <p>Our membership management software provides full automation of membership renewals and payments</p>
+        </div>
+        <div class="category">
+            <img src="icon3.png" alt="icons">
+            <h3>Clubs And Groups</h3>
+            <p>Our membership management software provides full automation of membership renewals and payments</p>
+        </div>
+    </div>
+</section>
+<section class="info-section">
+    <div class="info-image">
+        <img src="info-illustration.png" alt="Info Illustration">
+    </div>
+    <div class="info-text">
+        <h2>The unseen of spending three years at Pixelgrade</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum.
+            Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum lorem sed porta.
+            Nullam mattis tristique iaculis. Nullam pulvinar sit amet risus pretium auctor. Etiam quis massa pulvinar, aliquam quam vitae, tempus sem.
+            Donec elementum pulvinar odio.</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+</section>
+<section class="statistics">
+    <div class="statistics-content">
+        <div class="statistics-text">
+            <h2>Helping a local <br> <span style="color:#28a745">business reinvent itself</span></h2>
+            <p>We reached here with our hard work and dedication</p>
+        </div>
+        <div class="statistics-grid">
+            <div class="stat-i">
+                <img src="Icon-1.png" alt="Icon-1">
+                <div class="stat-item">
+                    <h3>2,245,341</h3>
+                    <p>Members</p>
+                </div>
+            </div>
+            <div class="stat-i">
+                <img src="Icon-2.png" alt="Icon-2">
+                <div class="stat-item">
+                    <h3>46,328</h3>
+                    <p>Clubs</p>
+                </div>
+            </div>
+            <div class="stat-i">
+                <img src="Icon-3.png" alt="Icon-3">
+                <div class="stat-item">
+                    <h3>828,867</h3>
+                    <p>Event Bookings</p>
+                </div>
+            </div>
+
+            <div class="stat-i">
+                <img src="Icon-4.png" alt="Icon-4">
+                <div class="stat-item">
+                    <h3>1,926,436</h3>
+                    <p>Payments</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="design-footer">
+    <div class="design-footer-img">
+        <img src="design-footer.png" alt="Design Footer Illustration">
+    </div>
+    <div class="design-footer-text">
+        <h2>How to design your site footer like <br> we did</h2>
+        <p>Donec a eros justo. Fusce egestas tristique ultrices.
+            Nam tempor, augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque elit erat a magna.
+            Donec quis erat at libero ultrices mollis.
+            In hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus.
+            In euismod augue vitae nisi ultricies, non aliquet urna tincidunt.
+            Integer in nisi eget nulla commodo faucibus efficitur quis massa.
+            Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. Donec consectetur faucibus ipsum id gravida.</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+</section>
+<section class="customer-block">
+    <div class="customer-image">
+        <img src="image 9.png" alt="Tesla Logo">
+    </div>
+    <div class="customer-info">
+        <p>Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus tincidunt ullamcorper.
+            Proin eu enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie arcu, at hendrerit elit.
+            Morbi laoreet elit at ligula molestie, nec molestie mi blandit. Suspendisse cursus tellus sed augue ultrices, quis tristique nulla sodales.
+            Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque malesuada enim sapien, vitae placerat ante feugiat eget.
+            Quisque vulputate odio neque, eget efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.</p>
+        <div class="customer-name">Tim Smith</div>
+        <div class="customer-title">British Dragon Boat Racing Association</div>
+        <div class="logos">
+            <img src="logo1.png" alt="Logo 1">
+            <img src="logo2.png" alt="Logo 2">
+            <img src="logo3.png" alt="Logo 3">
+            <img src="logo4.png" alt="Logo 4">
+            <img src="logo5.png" alt="Logo 5">
+            <img src="logo6.png" alt="Logo 6">
+            <a href="#" class="view-all">Meet all customers</a>
+        </div>
+    </div>
+    <div class="space-right"></div>  <!-- Пустое пространство 144×390 -->
+</section>
+<section>
+    <div class="blog-section">
+    <h2 class="blog-title">Caring is the new marketing</h2>
+    <p class="blog-subtitle">
+        The Nexcent blog is the best place to read about the latest membership insights, trends and more.
+        See who's joining the community, read about how our community are increasing their membership income and lot's more.
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            <img src="image 18.png" alt="Image 18">
+            <div class="card-content">
+                <p>Creating Streamlined Safeguarding Processes with OneRen</p>
+                <a href="#" class="read-more">Readmore</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="image 19.png" alt="Image 19">
+            <div class="card-content">
+                <p>What are your safeguarding responsibilities and how can you manage them?</p>
+                <a href="#" class="read-more">Readmore</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="image 20.png" alt="Image 20">
+            <div class="card-content">
+                <p>Revamping the Membership Model with Triathlon Australia</p>
+                <a href="#" class="read-more">Readmore</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+<div class="footer-container">
+    <div class="cta-section">
+        <h1>Pellentesque suscipit<br>fringilla libero eu.</h1>
+        <button>Get a Demo →</button>
+    </div>
+
+    <div class="footer">
+        <div class="footer-column">
+            <div class="footer-column-logo">
+                <img src="Iconfinal.png" alt="Логотип">
+                <span>Nexcent</span>
+            </div>
+            <p>Copyright © 2020 Nexcent Itd. <br>All rights reserved</p>
+            <div class="social-icons">
+                <img src="inst.png" alt="Instagram">
+                <img src="web.png" alt="Website">
+                <img src="twitter.png" alt="Twitter">
+                <img src="youtube.png" alt="YouTube">
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3>Company</h3>
+            <a href="#">About us</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact us</a>
+            <a href="#">Pricing</a>
+            <a href="#">Testimonials</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Support</h3>
+            <a href="#">Help center</a>
+            <a href="#">Terms of service</a>
+            <a href="#">Legal</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Status</a>
+        </div>
+
+        <div class="footer-column subscribe">
+            <h3>Stay up to date</h3>
+            <input type="email" placeholder="Your email address">
+            <button>→</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
