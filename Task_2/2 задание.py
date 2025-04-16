@@ -40,10 +40,10 @@ class Router:
         self.buffer = []
 
 class Data:
-    def __init__(self, data, ip):
-        self.data = data
+    def __init__(self, data, ip): #метод  инициализация объекта
+        self.data = data # дата это атрибут объекта
         self.ip = ip
-
+# self - параметр метода который ссылается на экземпляр класса, для которого вызывается метод
  # проверки
 assert hasattr(Router, 'link') and hasattr(Router, 'unlink') and hasattr(Router, 'send_data'), "в классе Router присутсвутю не все методы, указанные в задании"
 assert hasattr(Server, 'send_data') and hasattr(Server, 'get_data') and hasattr(Server, 'get_ip'), "в классе Server присутсвутю не все методы, указанные в задании"

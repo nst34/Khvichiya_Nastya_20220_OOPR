@@ -6,43 +6,43 @@ import csv
 
 
 class App(tk.Tk):
-    def __init__(self):
-        super().__init__()
+    def __init__(self):  # функция, которая вызывается при создании нового объекта (экземпляра, ребенка)
+        super().__init__()  # вызываем init из родительского класса
 
-        weight = 600
+        weight = 600  # временная переменная. ширина для дальнейших вычислений
         #height = 450
-        self.error_dt = 0
-        self.sum_money = 0
+        self.error_dt = 0   # атрибут экземпляра класса App
+        self.sum_money = 0  # атрибут экземпляра класса App
 
-        self.lst = list()
+        self.lst = []  # список детей
 
-        self.title("Учет расходов")
-        self.geometry('600x450')
-        self.resizable(False, False)
+        self.title("Учет расходов")   # функция, которую вызываем из экземпляра (он её унаследовал от класса). устанавливает имя окна
+        self.geometry('600x450')      # устанавливает размеры окна
+        self.resizable(False, False)  # не дает изменять размеры окна
 
-        main_menu = tk.Menu(self)
+        main_menu = tk.Menu(self)  # создание экземпляра класса Menu из библиотеки tk
         self.config(menu=main_menu)
         file_menu = tk.Menu(main_menu)
-        main_menu.add_cascade(label="Файл", menu=file_menu)
+        main_menu.add_cascade(label="Файл", menu=file_menu)  # добавление пункта в меню
         file_menu.add_command(label="Сохранить", command=self.save_file)
         file_menu.add_command(label="Загрузить", command=self.open_file)
 
-        self.dmy = tk.Label(self, text="Дата (ДД.ММ.ГГГГ):")
-        self.dmy.grid(row=1, column=0)
+        self.dmy = tk.Label(self, text="Дата (ДД.ММ.ГГГГ):") #изобрадение текста или картинки
+        self.dmy.grid(row=1, column=0) #добавление в ячейку
         self.dmy_entry = tk.Entry(width=22)
         self.dmy_entry.grid(row=1, column=1)
 
         self.category = tk.Label(text="Категория:")
         self.category.grid(row=2, column=0)
 
-        self.category_entry = ttk.Combobox()
+        self.category_entry = ttk.Combobox() #список выбор
         self.category_entry.grid(row=2, column=1)
         self.category_entry.bind('<KeyRelease>', self.check_input)
         self.category_entry.bind("<<ComboboxSelected>>", self.selected)
 
-        self.money = tk.Label(text="Деньги:")
+        self.money = tk.Label(text="Деньги:") #виджеты текста
         vcmd = self.register(self.validate)
-        self.money_entry = tk.Entry(validate="key", validatecommand=(vcmd, '%P'), width=22)
+        self.money_entry = tk.Entry(validate="key", validatecommand=(vcmd, '%P'), width=22) #ввод
         self.money.grid(row=3, column=0)
         self.money_entry.grid(row=3, column=1)
 
@@ -52,11 +52,11 @@ class App(tk.Tk):
         self.total_amount = tk.Label(text=f"Общая сумма расходов:{'  ' * 25}{self.sum_money}")
         self.total_amount.grid(row=7, columnspan=2)
 
-        self.scrollbar = ttk.Scrollbar(self, orient="vertical")
+        self.scrollbar = ttk.Scrollbar(self, orient="vertical") # ползунок для облистывания
         self.scrollbar.grid(row=5, column=4, sticky="ns")
 
         self.tree = ttk.Treeview(self, columns=("Date", "Category", "Sum"), yscrollcommand=self.scrollbar.set,
-                                 show="headings", selectmode="extended")
+                                 show="headings", selectmode="extended") #разделенение таблицы
         self.tree.heading("Date", text="Дата")
         self.tree.heading("Category", text="Категория",
                           command=lambda: self.treeview_sort_column(self.tree, "Category", True))
@@ -76,7 +76,7 @@ class App(tk.Tk):
         self.grid_rowconfigure(4, weight=1)
         self.grid_columnconfigure(0, weight=1)
 
-    def delete_selected(self):
+    def delete_selected(self): #кнопка удаления
         selected_items = self.tree.selection()
         for item in selected_items:
             for i in [self.tree.item(item, option="values")]:
@@ -93,7 +93,7 @@ class App(tk.Tk):
                     self.lst.append(i[1])
         self.category_entry['values'] = self.lst
 
-    def validate(self, new_text: str):
+    def validate(self, new_text: str): #проверка ввода
         if not new_text:
             return True
         try:
@@ -102,7 +102,7 @@ class App(tk.Tk):
         except ValueError:
             return False
 
-    def check_date(self):
+    def check_date(self): #проверка ввода даты
         date = list(map(int, self.dmy_entry.get().split('.')))
         try:
             datetime.fromisoformat(f"{date[2]}-{date[1]:02}-{date[0]:02}")
@@ -112,7 +112,7 @@ class App(tk.Tk):
         else:
             return False
 
-    def check_input(self, event):
+    def check_input(self, event): #проверка ввода категории
         value = event.widget.get()
         if value == '':
             self.category_entry['values'] = self.lst
@@ -138,7 +138,7 @@ class App(tk.Tk):
 
         tv.heading(col, command=lambda: self.treeview_sort_column(tv, col, not reverse, key=key))
 
-    def open_file(self):
+    def open_file(self): #открытие файла
         filepath = askopenfilename(
             filetypes=[("CSV Files", "*.csv")]
         )
@@ -170,7 +170,7 @@ class App(tk.Tk):
         self.category_entry['values'] = self.lst
         print("Таблица была успешно загружена", self.lst)
 
-    def save_file(self):
+    def save_file(self): #сохранение файла
         filepath = asksaveasfilename(
             defaultextension=".csv",
             filetypes=[("CSV Files", "*.csv")],
